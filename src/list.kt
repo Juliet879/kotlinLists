@@ -9,12 +9,12 @@ fun main() {
                             Person("Samantha",34,1.8,76.4),
                             Person("Melissa",22,1.3,45.3))
     println(sorting(peopleList))
-    println(addPeople(peopleList))
+    addPeople(peopleList)
     val cars = listOf(Car("KCA456",120),
                          Car("KCC721",80),
                          Car("KBC6423",100)
         )
-    avgMileage(cars)
+    println(avgMileage(cars))
 
 }
 fun findString(words:List<String>):List<String>{
@@ -49,8 +49,9 @@ fun addPeople(peopleList: List<Person>){
 }
 
 data class Car(var registration:String,var mileage:Int)
-fun avgMileage(cars:List<Car>){
+fun avgMileage(cars:List<Car>):Int{
+     var totalMileage = 0
+    cars.forEach { car -> totalMileage+=car.mileage }
+    return totalMileage/cars.size
 
-   var mileage = cars.sortedBy { car -> car.mileage }
-    println(mileage)
 }
